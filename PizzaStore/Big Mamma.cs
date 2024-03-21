@@ -15,6 +15,7 @@ namespace PizzaStore
         private int _numberOfPizzasInOrder;
         private string _orderID;
         private Invoice _invoice;
+        MenuCatalog _menuCatalog;
         #endregion
 
         #region Constructor
@@ -24,6 +25,7 @@ namespace PizzaStore
             _customerName = CustomerName;
             _numberOfPizzasInOrder = NumberOfPizzasInOrder;
             _invoice = Invoice;
+            _menuCatalog = new MenuCatalog();
         }
         #endregion
 
@@ -82,10 +84,21 @@ namespace PizzaStore
             Invoice invoice3 = new Invoice(order3);
             Console.WriteLine(order3);
             Console.WriteLine(invoice3);
+            Console.WriteLine();
+
+            MenuCatalog catalog = new MenuCatalog();
+            catalog.SavePizza(pizza1);
+            catalog.SavePizza(pizza2);
+            catalog.SavePizza(pizza3);
+            catalog.PrintMenu();
         }
         public override string ToString()
         {
             return $"";
+        }
+        public void Run() 
+        {
+            new UserDialog(_menuCatalog).Run();
         }
         #endregion
     }

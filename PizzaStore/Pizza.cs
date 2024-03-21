@@ -11,6 +11,8 @@ namespace PizzaStore
         #region Instance Field
         private int _price;
         private string _name;
+        private int _pizzaId;
+        private static int _pizzaIDCounter=0;
         #endregion
 
         #region Constructor
@@ -18,6 +20,7 @@ namespace PizzaStore
         {
             _name = Name;
             _price = Price;
+            _pizzaId = _pizzaIDCounter++;
         }
         #endregion
 
@@ -29,6 +32,10 @@ namespace PizzaStore
         public string Name
         {
             get { return _name; }
+        }
+        public int PizzaId
+        { 
+            get { return _pizzaId; } 
         }
         #endregion
 
